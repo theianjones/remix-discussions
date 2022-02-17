@@ -16,4 +16,5 @@ model Post {
   updatedAt  DateTime @updatedAt
   title      String?
   body       String
+  slug       String
 }

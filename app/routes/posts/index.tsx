@@ -1,23 +1,10 @@
 import type {LoaderFunction} from 'remix'
 import {useLoaderData} from 'remix'
+import {db} from '~/services/db'
+import type {Post} from '~/services/db'
 
-export const posts = [
-  {
-    title: 'First post',
-    body: 'This is my first post and it is awesome.',
-    path: '/posts/first-post',
-    slug: 'first-post',
-  },
-]
-
-export const loader: LoaderFunction = () => {
-  return posts
-}
-
-export type Post = {
-  title: string
-  body: string
-  path: string
+export const loader: LoaderFunction = async () => {
+  return await db.post.findMany()
 }
 
 export default function PostsIndex() {
@@ -27,7 +14,7 @@ export default function PostsIndex() {
     <ul>
       {posts.map((post) => (
         <li key={post.title}>
-          <a href={post.path}>{post.body}</a>
+          <a href={`/posts/${post.slug}`}>{post.body}</a>
         </li>
       ))}
     </ul>

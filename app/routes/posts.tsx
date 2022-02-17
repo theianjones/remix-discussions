@@ -1,4 +1,3 @@
-import {LoaderFunction, useLoaderData} from 'remix'
 import {Outlet} from 'remix'
 
 export default function Posts() {
