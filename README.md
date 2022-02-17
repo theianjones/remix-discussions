@@ -1,6 +1,13 @@
-# Welcome to Remix!
+# Remix Discussions
 
-- [Remix Docs](https://remix.run/docs)
+In this app we are going to build a social network out of 4 technologies:
+
+- [Remix](https://remix.run/) for our web framework
+- [Prisma](https://www.prisma.io/) for our database abstraction
+- [Planet Scale](https://planetscale.com/) for our serverless database
+- [Vercel](https://vercel.com) for our hosting environment
+
+We will make a group discussion app. Users will be able to create an account with email and password. They will be able to create a group and add their friends to it. They will be able to post their thoughts to the group.
 
 ## Deployment
 
