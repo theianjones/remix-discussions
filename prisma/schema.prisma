@@ -17,6 +17,8 @@ model Post {
   title      String?
   body       String
   slug       String
+  author     User    @relation(fields: [authorId], references: [id])
+  authorId   String
 }
 
 model User {
@@ -27,4 +29,5 @@ model User {
   email          String   @unique
   hashedPassword String
   role           String   @default("USER")
+  posts          Post[]
 }

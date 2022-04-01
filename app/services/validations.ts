@@ -13,3 +13,9 @@ export const Login = z.object({
   email,
   password,
 })
+
+export const CreatePost = z.object({
+  title: z.string().optional(),
+  body: z.string(),
+  authorId: z.string().uuid(),
+})
