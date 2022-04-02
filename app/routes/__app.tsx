@@ -14,15 +14,23 @@ export default function App() {
         <h1>Remix Discussions</h1>
         <ul>
           {user && <li>{user.email}</li>}
-          <li>
-            {user ? (
+          {user && (
+            <li>
               <form method="post" action="/logout">
                 <button type="submit">logout</button>
               </form>
-            ) : (
+            </li>
+          )}
+          {!user && (
+            <li>
               <Link to="/login">login</Link>
-            )}
-          </li>
+            </li>
+          )}
+          {!user && (
+            <li>
+              <Link to="/signup">Create an Account</Link>
+            </li>
+          )}
         </ul>
       </nav>
       <Outlet />
