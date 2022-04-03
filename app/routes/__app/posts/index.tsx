@@ -13,7 +13,7 @@ export const loader: LoaderFunction = async ({request}) => {
     select: {followingId: true},
   })
   return await db.post.findMany({
-    where: {authorId: {in: following.map((f) => f.followingId)}},
+    where: {authorId: {in: [...following.map((f) => f.followingId), user.id]}},
   })
 }
 

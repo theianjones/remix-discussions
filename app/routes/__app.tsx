@@ -13,23 +13,28 @@ export default function App() {
       <nav style={{display: 'flex', justifyContent: 'justify-around'}}>
         <h1>Remix Discussions</h1>
         <ul>
-          {user && <li>{user.email}</li>}
           {user && (
-            <li>
-              <form method="post" action="/logout">
-                <button type="submit">logout</button>
-              </form>
-            </li>
+            <>
+              <li>{user.email}</li>
+              <li>
+                <form method="post" action="/logout">
+                  <button type="submit">logout</button>
+                </form>
+              </li>
+              <li>
+                <Link to={'/profile'}>profile</Link>
+              </li>
+            </>
           )}
           {!user && (
-            <li>
-              <Link to="/login">login</Link>
-            </li>
-          )}
-          {!user && (
-            <li>
-              <Link to="/signup">Create an Account</Link>
-            </li>
+            <>
+              <li>
+                <Link to="/login">login</Link>
+              </li>
+              <li>
+                <Link to="/signup">Create an Account</Link>
+              </li>
+            </>
           )}
         </ul>
       </nav>
