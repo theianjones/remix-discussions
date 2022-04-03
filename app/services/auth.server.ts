@@ -31,18 +31,21 @@ export const userSignup = async (email: string, password: string) => {
 
 const userLogin = async (email: string, password: string) => {
   const user = await db.user.findFirst({where: {email}})
+  console.log({user})
   if (!user) {
     throw new Error('Cant find that user :(')
   }
 
   const isAuthenticated = await verifyPassword(user.hashedPassword, password)
 
+  console.log({isAuthenticated})
   if (!isAuthenticated) {
     throw new Error('Password was incorrect')
   }
 
   const {hashedPassword, ...sessionUser} = user
 
+  console.log({sessionUser})
   return sessionUser
 }
 
@@ -61,6 +64,7 @@ authenticator.use(
 
     const user = await userLogin(email, password)
 
+    console.log({login: user})
     return user
   }),
   USER_LOGIN,
