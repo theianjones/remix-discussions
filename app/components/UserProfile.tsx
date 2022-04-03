@@ -1,3 +1,4 @@
+import React from 'react'
 import {Link} from 'remix'
 import {SessionUser} from '~/services/auth.server'
 import {ProfileUser} from '~/services/profile.server'
@@ -6,10 +7,15 @@ type Props = {
   user: ProfileUser
   sessionUser: SessionUser
 }
-export const UserProfile = ({user, sessionUser}: Props) => {
+export const UserProfile = ({
+  user,
+  sessionUser,
+  children,
+}: Props & {children?: React.ReactNode}) => {
   const {following, followers, posts} = user
   return (
     <div>
+      {children}
       <div>
         <h2>email</h2> <p>{user.email}</p>
       </div>

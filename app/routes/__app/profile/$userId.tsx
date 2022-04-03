@@ -26,5 +26,23 @@ export default function ProfileShow() {
     user: ProfileUser
   }>()
 
-  return <UserProfile user={user} sessionUser={sessionUser} />
+  const sessionUserFollowsUser = user.followers.some(
+    (f) => f.id === sessionUser.id,
+  )
+
+  return (
+    <UserProfile user={user} sessionUser={sessionUser}>
+      <form method="post" action="/follows">
+        <input
+          style={{display: 'none'}}
+          name="action"
+          value={sessionUserFollowsUser ? 'unfollow' : 'follow'}
+        />
+        <input style={{display: 'none'}} name="followerId" value={user.id} />
+        <button type="submit">
+          {sessionUserFollowsUser ? 'Unfollow' : 'Follow'}
+        </button>
+      </form>
+    </UserProfile>
+  )
 }
