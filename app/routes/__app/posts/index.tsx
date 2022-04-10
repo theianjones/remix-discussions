@@ -1,7 +1,7 @@
 import type {LoaderFunction} from 'remix'
 import {useLoaderData} from 'remix'
-import {db} from '~/services/db'
-import type {Post} from '~/services/db'
+import {db} from '~/services/db.server'
+import type {Post} from '~/services/db.server'
 import {authenticator} from '~/services/auth.server'
 
 export const loader: LoaderFunction = async ({request}) => {

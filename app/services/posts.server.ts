@@ -1,7 +1,7 @@
 import {v4 as uuidv4} from 'uuid'
 import {CreatePost} from './validations'
-import type {Post} from '~/services/db'
-import {db} from '~/services/db'
+import type {Post} from '~/services/db.server'
+import {db} from '~/services/db.server'
 
 export const createPost = (
   params: Pick<Post, 'title' | 'body' | 'authorId'>,

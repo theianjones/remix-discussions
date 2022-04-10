@@ -1,8 +1,8 @@
 import {Authenticator} from 'remix-auth'
 import {FormStrategy} from 'remix-auth-form'
 import {sessionStorage} from '~/services/session.server'
-import type {User} from '~/services/db'
-import {db} from '~/services/db'
+import type {User} from '~/services/db.server'
+import {db} from '~/services/db.server'
 import {Login} from './validations'
 import {hashPassword, verifyPassword} from './auth-utils.server'
 

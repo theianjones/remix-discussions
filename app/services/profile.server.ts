@@ -1,4 +1,4 @@
-import {db, Post, User} from './db'
+import {db, Post, User} from './db.server'
 
 export type ProfileUser = {
   email: string

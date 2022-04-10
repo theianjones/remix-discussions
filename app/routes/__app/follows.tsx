@@ -1,6 +1,6 @@
 import {ActionFunction, json, redirect} from 'remix'
 import {authenticator} from '~/services/auth.server'
-import {db} from '~/services/db'
+import {db} from '~/services/db.server'
 
 type ActionData = {
   formError?: string

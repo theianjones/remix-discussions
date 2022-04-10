@@ -1,7 +1,7 @@
 import {LoaderFunction, useCatch} from 'remix'
 import {useLoaderData, json} from 'remix'
-import {db} from '~/services/db'
-import type {Post} from '~/services/db'
+import {db} from '~/services/db.server'
+import type {Post} from '~/services/db.server'
 
 export const loader: LoaderFunction = async ({params}) => {
   const post = await db.post.findFirst({where: {slug: params.postId}})
