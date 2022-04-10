@@ -7,13 +7,13 @@ export const sessionStorage = createCookieSessionStorage({
     name: '__remix-discussions',
     // all of these are optional
     // domain: 'remix.run',
-    expires: new Date(Date.now() + 60_000),
+    expires: new Date(Date.now() + 60_000000000),
     httpOnly: true,
-    maxAge: 60,
+    maxAge: 6000000000000,
     path: '/',
     sameSite: 'lax',
     secrets: ['s3cret1'],
-    secure: true,
+    secure: process.env.NODE_ENV === 'production',
   },
 })
 
