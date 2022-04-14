@@ -9,7 +9,7 @@ export const loader: LoaderFunction = async ({request}) => {
 export default function App() {
   const user = useLoaderData<SessionUser>()
   return (
-    <div>
+    <div style={{margin: 'auto', maxWidth: 1200}}>
       <nav style={{display: 'flex', justifyContent: 'justify-around'}}>
         <h1>Remix Discussions</h1>
         <ul>

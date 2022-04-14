@@ -9,6 +9,19 @@ In this app we are going to build a social network out of 4 technologies:
 
 We will make a group discussion app. Users will be able to create an account with email and password. They will be able to create a group and add their friends to it. They will be able to post their thoughts to the group.
 
+## Running In Development
+
+There are two commands you need to run in two different terminals:
+
+- `yarn dev`
+- `yarn dev:db`
+
+`yarn dev` starts the remix development server.
+
+`yarn dev:db` starts the planetscale database. Pick the branch you want to work off of when you start the command.
+
+This assumes you have `pscale` installed and you've logged in with the CLI.
+
 ## Deployment
 
 After having run the `create-remix` command and selected "Vercel" as a deployment target, you only need to [import your Git repository](https://vercel.com/new) into Vercel, and it will be deployed.
