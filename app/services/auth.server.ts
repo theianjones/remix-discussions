@@ -31,21 +31,28 @@ export const userSignup = async (email: string, password: string) => {
 
 const userLogin = async (email: string, password: string) => {
   const user = await db.user.findFirst({where: {email}})
-  console.log({user})
   if (!user) {
-    throw new Error('Cant find that user :(')
+    throw new Error('User not found')
   }
 
-  const isAuthenticated = await verifyPassword(user.hashedPassword, password)
+  const {result, error, improvedHash} = await verifyPassword(
+    user.hashedPassword,
+    password,
+  )
 
-  console.log({isAuthenticated})
-  if (!isAuthenticated) {
-    throw new Error('Password was incorrect')
+  if (result === 'INVALID') {
+    throw error ? error : new Error('Invalid Password')
+  }
+
+  if (improvedHash) {
+    await db.user.update({
+      data: {hashedPassword: improvedHash},
+      where: {id: user.id},
+    })
   }
 
   const {hashedPassword, ...sessionUser} = user
 
-  console.log({sessionUser})
   return sessionUser
 }
 

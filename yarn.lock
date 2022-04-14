@@ -320,6 +320,13 @@
   resolved "https://registry.npmjs.org/@types/scheduler/-/scheduler-0.16.2.tgz"
   integrity sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==
 
+"@types/secure-password@^3.1.1":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@types/secure-password/-/secure-password-3.1.1.tgz#83739410c2f9cb75b3199ba2159fd41b9da0c8ca"
+  integrity sha512-8S6JYBt22MXJrc/ehq8U0jknbnCzssVFKwOqn2pLnzbZLtiotjxaCd+SRQtOcVqrn1NNiKyw6fZJagW1eBe1bQ==
+  dependencies:
+    "@types/node" "*"
+
 "@types/unist@*", "@types/unist@^2.0.0":
   version "2.0.6"
   resolved "https://registry.npmjs.org/@types/unist/-/unist-2.0.6.tgz"

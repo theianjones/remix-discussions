@@ -22,12 +22,15 @@ export const action: ActionFunction = async ({request}) => {
 
 export default function SignupPage() {
   return (
-    <form method="post">
-      <label htmlFor="email">Email</label>
-      <input type="email" name="email" />
-      <label htmlFor="password">Password</label>
-      <input type="password" name="password" />
-      <button type="submit">Create Account</button>
-    </form>
+    <>
+      <h1>Sign up</h1>
+      <form method="post">
+        <label htmlFor="email">Email</label>
+        <input type="email" name="email" />
+        <label htmlFor="password">Password</label>
+        <input type="password" name="password" />
+        <button type="submit">Create Account</button>
+      </form>
+    </>
   )
 }
