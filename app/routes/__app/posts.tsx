@@ -1,17 +1,25 @@
-import {Link, Outlet} from 'remix'
+import {Link, LinksFunction, Outlet} from 'remix'
+import styles from '~/styles/postsLayout.css'
+
+export const links: LinksFunction = () => {
+  return [
+    {
+      rel: 'stylesheet',
+      href: styles,
+    },
+  ]
+}
 
 export default function Posts() {
   return (
     <div>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        }}
-      >
-        <h1>Posts</h1>
-        <Link to="/posts/new">New Post</Link>
+      <div className="posts-header">
+        <h1>
+          <Link to="/posts">Posts</Link>
+        </h1>
+        <Link to="/posts/new" className="button">
+          New Post
+        </Link>
       </div>
       <Outlet />
     </div>

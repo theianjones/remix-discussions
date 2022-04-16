@@ -1,9 +1,13 @@
-import {LoaderFunction, redirect, useLoaderData} from 'remix'
+import {LinksFunction, LoaderFunction, redirect, useLoaderData} from 'remix'
 import {authenticator} from '~/services/auth.server'
 import type {SessionUser} from '~/services/auth.server'
 import {getUserWithFollows, ProfileUser} from '~/services/profile.server'
 import type {User} from '~/services/db.server'
-import {UserProfile} from '~/components/UserProfile'
+import {UserProfile, links as userProfileLinks} from '~/components/UserProfile'
+
+export const links: LinksFunction = () => {
+  return [...userProfileLinks()]
+}
 
 export const loader: LoaderFunction = async ({request, params}) => {
   const sessionUser = await authenticator.isAuthenticated(request, {

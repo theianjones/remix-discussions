@@ -29,7 +29,9 @@ export default function SignupPage() {
         <input type="email" name="email" />
         <label htmlFor="password">Password</label>
         <input type="password" name="password" />
-        <button type="submit">Create Account</button>
+        <button type="submit" className="button">
+          Create Account
+        </button>
       </form>
     </>
   )
