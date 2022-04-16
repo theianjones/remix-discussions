@@ -1,7 +1,13 @@
-import type {ActionFunction} from 'remix'
+import type {ActionFunction, LinksFunction} from 'remix'
 import {redirect} from 'remix'
+import {PostForm, links as postFormLinks} from '~/components/PostForm'
 import {authenticator} from '~/services/auth.server'
 import {createPost} from '~/services/posts.server'
+import styles from '~/styles/postsNew.css'
+
+export const links: LinksFunction = () => {
+  return [{rel: 'stylesheet', href: styles}, ...postFormLinks()]
+}
 
 export const action: ActionFunction = async ({request}) => {
   const requestBody = await request.formData()
@@ -22,15 +28,9 @@ export const action: ActionFunction = async ({request}) => {
 
 export default function NewPost() {
   return (
-    <div>
+    <div className="wrapper">
       <h2>Create a Post</h2>
-      <form method="post">
-        <label htmlFor="title">Title</label>
-        <input name="title" placeholder="Title of your post" />
-        <label htmlFor="body">Body</label>
-        <textarea name="body" placeholder="Write something amazing" />
-        <button type="submit">Create Post</button>
-      </form>
+      <PostForm />
     </div>
   )
 }

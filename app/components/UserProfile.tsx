@@ -1,7 +1,12 @@
 import React from 'react'
-import {Link} from 'remix'
+import {Link, LinksFunction} from 'remix'
 import {SessionUser} from '~/services/auth.server'
 import {ProfileUser} from '~/services/profile.server'
+import {PostList, links as postListLinks} from './PostList'
+
+export const links: LinksFunction = () => {
+  return [...postListLinks()]
+}
 
 type Props = {
   user: ProfileUser
@@ -50,11 +55,7 @@ export const UserProfile = ({
       <div>
         <h2>Posts</h2>
         {posts.length > 0 ? (
-          posts.map((post) => (
-            <li key={post.title}>
-              <a href={`/posts/${post.slug}`}>{post.body}</a>
-            </li>
-          ))
+          <PostList posts={posts} />
         ) : (
           <p>{user.email} has no posts yet.</p>
         )}

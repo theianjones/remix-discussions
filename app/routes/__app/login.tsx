@@ -36,7 +36,11 @@ export default function LoginPage() {
           autoComplete="current-password"
           required
         />
-        <button type="submit" disabled={transition.state !== 'idle'}>
+        <button
+          type="submit"
+          disabled={transition.state !== 'idle'}
+          className="button"
+        >
           {transition.state === 'idle' ? 'Login' : 'Logging in....'}
         </button>
         {error && <p style={{color: 'red'}}>{error.message}</p>}

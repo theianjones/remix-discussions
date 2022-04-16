@@ -1,8 +1,13 @@
-import type {LoaderFunction} from 'remix'
+import type {LinksFunction, LoaderFunction} from 'remix'
 import {useLoaderData} from 'remix'
 import {db} from '~/services/db.server'
 import type {Post} from '~/services/db.server'
 import {authenticator} from '~/services/auth.server'
+import {PostList, links as postListLinks} from '~/components/PostList'
+
+export const links: LinksFunction = () => {
+  return [...postListLinks()]
+}
 
 export const loader: LoaderFunction = async ({request}) => {
   const user = await authenticator.isAuthenticated(request, {
@@ -20,13 +25,5 @@ export const loader: LoaderFunction = async ({request}) => {
 export default function PostsIndex() {
   const posts = useLoaderData<Post[]>()
 
-  return (
-    <ul>
-      {posts.map((post) => (
-        <li key={post.title}>
-          <a href={`/posts/${post.slug}`}>{post.body}</a>
-        </li>
-      ))}
-    </ul>
-  )
+  return <PostList posts={posts} />
 }

@@ -1,0 +1,50 @@
+:root {
+  --light-blue: #f9fbff;
+  --blue: #4568a9;
+  --gray: #b7b7b7;
+  --gray-5: rgba(0, 0, 0, 0.05);
+  --text-color: #0f1624;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  color: var(--text-color);
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--light-blue);
+  padding: 0 16px;
+}
+
+.button {
+  padding: 12px 14px;
+  background-color: transparent;
+  cursor: pointer;
+  appearance: none;
+  font-weight: 700;
+  color: var(--blue);
+  filter: brightness(100%);
+  -webkit-filter: brightness(100%);
+  border-radius: 4px;
+  border: none;
+}
+
+.button:hover {
+  transition: all 1s ease;
+  filter: brightness(60%);
+  -webkit-filter: brightness(60%);
+  background-color: var(--gray-5);
+}
+
+a {
+  text-decoration: none;
+}
