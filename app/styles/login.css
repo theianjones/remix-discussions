@@ -1,0 +1,16 @@
+.login {
+    max-width: 400px;
+    margin: auto
+}
+
+.login .form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.login .field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
