@@ -20,17 +20,16 @@ export const loader: LoaderFunction = async ({request}) => {
     })
     
     const params = new URLSearchParams(request.url)
-    const cursor = params.get('paginate') ?? undefined
-    const users = await getUsers({cursor: cursor, currentEmail: sessionUser.email})
+    const users = await getUsers({currentEmail: sessionUser.email})
 
     return {
         sessionUser,
-        users
+        users,
     }
 }
 
 export default function SearchPage() {
-    const {users, sessionUser} = useLoaderData<{sessionUser: SessionUser, users: GetUsers}>()
+    const {users, sessionUser} = useLoaderData<{sessionUser: SessionUser, users: GetUsers[0]}>()
     return (
         <div className='search'>
             <h2>
