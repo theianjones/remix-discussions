@@ -1,5 +1,5 @@
 import {Link, LinksFunction, Outlet} from 'remix'
-import styles from '~/styles/posts/layout.css'
+import styles from '~/styles/search/layout.css'
 
 export const links: LinksFunction = () => {
   return [
@@ -12,14 +12,11 @@ export const links: LinksFunction = () => {
 
 export default function Posts() {
   return (
-    <div>
-      <div className="posts-header">
+    <div className='search'>
+      <div className='header'>
         <h1>
-          <Link to="/posts">Posts</Link>
+         Search
         </h1>
-        <Link to="/posts/new" className="button">
-          New Post
-        </Link>
       </div>
       <Outlet />
     </div>

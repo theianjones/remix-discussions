@@ -24,6 +24,8 @@ export const action: ActionFunction = async ({request}) => {
   const followingId = user.id
   const followerId = form.get('followerId')
   const action = form.get('action')
+  const url = new URL(request.url)
+  const redirectUri = url.searchParams.get('redirectUri') ?? `/profile/${followerId}`
 
   if (
     typeof followerId !== 'string' ||
@@ -36,7 +38,7 @@ export const action: ActionFunction = async ({request}) => {
   switch (action) {
     case 'follow': {
       await db.follows.create({data: {followerId, followingId}})
-      return redirect(`/profile/${followerId}`)
+      return redirect(redirectUri)
     }
     case 'unfollow': {
       await db.follows.delete({
@@ -47,7 +49,7 @@ export const action: ActionFunction = async ({request}) => {
           },
         },
       })
-      return redirect(`/profile/${followerId}`)
+      return redirect(redirectUri)
     }
     default: {
       return badRequest({formError: `unknown form action ${action}`})

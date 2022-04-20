@@ -17,6 +17,11 @@ export function Nav({user}: {user: SessionUser}) {
               <p className="email">{user.email}</p>
             </li>
             <li>
+              <Link to={'/search'} className="button">
+                Find a friend
+              </Link>
+            </li>
+            <li>
               <Link to={'/profile'} className="button">
                 Profile
               </Link>

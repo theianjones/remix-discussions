@@ -19,6 +19,10 @@ export const loader: LoaderFunction = async ({request, params}) => {
     return redirect('/posts')
   }
 
+  if(userId === sessionUser.id){
+    return redirect('/profile')
+  }
+
   const user = await getUserWithFollows({userId})
 
   return {sessionUser, user}
@@ -42,8 +46,8 @@ export default function ProfileShow() {
           name="action"
           value={sessionUserFollowsUser ? 'unfollow' : 'follow'}
         />
-        <input style={{display: 'none'}} name="followerId" value={user.id} />
-        <button type="submit">
+        <input style={{display: 'none'}} name="followerId" value={user.id} readOnly/>
+        <button type="submit" className='button'>
           {sessionUserFollowsUser ? 'Unfollow' : 'Follow'}
         </button>
       </form>

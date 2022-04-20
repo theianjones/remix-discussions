@@ -1,0 +1,30 @@
+.search {
+    max-width: 400px;
+    margin: auto;
+}
+
+.search h2 {
+    margin-bottom: 20px;
+}
+
+.search .list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.search .user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--gray-5);
+    padding: 8px;
+    border-radius: 4px;
+    text-decoration: underline;
+}
+
+.search .user a {
+    color: var(--text-color);
+}
