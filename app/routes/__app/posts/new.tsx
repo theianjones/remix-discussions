@@ -3,7 +3,7 @@ import {redirect} from 'remix'
 import {PostForm, links as postFormLinks} from '~/components/PostForm'
 import {authenticator} from '~/services/auth.server'
 import {createPost} from '~/services/posts.server'
-import styles from '~/styles/postsNew.css'
+import styles from '~/styles/posts/new.css'
 
 export const links: LinksFunction = () => {
   return [{rel: 'stylesheet', href: styles}, ...postFormLinks()]
